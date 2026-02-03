@@ -18,6 +18,112 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        /* Extra animations */
+        .sparkle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #FFD700 0%, transparent 70%);
+            border-radius: 50%;
+            animation: sparkleAnim 2s infinite;
+            pointer-events: none;
+        }
+
+        @keyframes sparkleAnim {
+
+            0%,
+            100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .glow-text {
+            animation: glowPulse 2s infinite;
+        }
+
+        @keyframes glowPulse {
+
+            0%,
+            100% {
+                text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
+            }
+
+            50% {
+                text-shadow: 0 0 30px rgba(255, 107, 157, 0.8), 0 0 60px rgba(199, 56, 102, 0.5);
+            }
+        }
+
+        .float-animation {
+            animation: floatUpDown 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUpDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .welcome-poetry {
+            font-size: 1.2rem;
+            color: #4A1942;
+            line-height: 2;
+            text-align: center;
+            font-style: italic;
+            margin: 24px 0;
+        }
+
+        .rizz-section {
+            background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(232, 160, 191, 0.2));
+            padding: 48px 24px;
+            margin: 32px 0;
+            border-radius: 24px;
+        }
+
+        .rizz-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 24px;
+            border-radius: 16px;
+            margin: 16px 0;
+            border-left: 4px solid #FF6B9D;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .rizz-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(199, 56, 102, 0.2);
+        }
+
+        .typing-effect {
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end);
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -42,24 +148,63 @@
     <!-- Main Content -->
     <main class="main-container">
 
-        <!-- Hero Section -->
+        <!-- Hero Section with Welcome Poetry -->
         <section class="hero-section" id="hero">
             <div class="hero-content">
-                <h1 class="hero-title">My Love</h1>
-                <div class="heart-divider">
+                <h1 class="hero-title glow-text">My Love</h1>
+                <div class="heart-divider float-animation">
                     <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnlpZnVhM2h0NXhmazhjNWFiajc3Nnp2ZnZuamptZXJ6YjNlc3U1YyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/3o7TKoWXm3okO1kgHC/giphy.gif"
                         alt="Heart" style="width: 80px; height: 80px; object-fit: contain;">
                 </div>
-                <p class="hero-subtitle">
-                    This website is made just for you...<br>
-                    Because you are my entire world
-                </p>
-                <p class="hero-subtitle">
-                    Scroll down to see how much I love you
+
+                <!-- Welcome Poetry with Rizz -->
+                <div class="welcome-poetry">
+                    <p>If I had a flower for every time you made me smile,</p>
+                    <p>I'd have a garden to walk through for miles and miles.</p>
+                    <p>But of all the flowers in this world so wide,</p>
+                    <p>You're the only one I want by my side.</p>
+                </div>
+
+                <p class="hero-subtitle" style="margin-top: 24px;">
+                    Some people search their whole lives for this feeling...<br>
+                    I found it the moment I found you.
                 </p>
             </div>
             <div class="scroll-indicator">
                 <span style="font-size: 2rem;">↓</span>
+            </div>
+        </section>
+
+        <!-- Rizz Poetry Section -->
+        <section class="rizz-section">
+            <h2 class="section-title">Words From My Heart</h2>
+
+            <div class="rizz-card">
+                <p style="font-size: 1.1rem; color: #4A1942;">
+                    "They say the moon is beautiful because it reflects the sun's light.
+                    But when I look at you, I wonder... where does the sun get its light from?"
+                </p>
+            </div>
+
+            <div class="rizz-card">
+                <p style="font-size: 1.1rem; color: #4A1942;">
+                    "I used to believe in luck until I realized... meeting you wasn't luck.
+                    It was destiny finally doing something right."
+                </p>
+            </div>
+
+            <div class="rizz-card">
+                <p style="font-size: 1.1rem; color: #4A1942;">
+                    "You know what's the best thing about my future?
+                    No matter how I imagine it, you're always in it."
+                </p>
+            </div>
+
+            <div class="rizz-card">
+                <p style="font-size: 1.1rem; color: #4A1942;">
+                    "If loving you was a crime, I'd happily serve a life sentence.
+                    Actually, make it multiple life sentences. One isn't enough."
+                </p>
             </div>
         </section>
 
@@ -145,10 +290,62 @@
                         To give you everything.
                     </p>
                 </article>
+
+                <!-- NEW: Dreaming Poetry -->
+                <article class="shayari-card">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTd6Z3RhZjM0dHFxMzN6NXJhbnpvMDhxdnNlMjU1NHpkcnRhYjJvaiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif"
+                        alt="Dreamy cat" class="shayari-icon-img">
+                    <h3 class="shayari-title">My Dreams</h3>
+                    <p class="shayari-text">
+                        Every night I dream of you,<br>
+                        And every morning I wake up blessed,<br>
+                        Because dreams come true for me,<br>
+                        When you're lying on my chest.
+                    </p>
+                </article>
+
+                <!-- NEW: Crazy Poetry -->
+                <article class="shayari-card">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2M5Z3g3cGNhcDF5eGFoamd4bm5zbDF4c3MxZWNjc3JrdHJzbHJuMCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/CjmvTCZf2U3p09Cn0h/giphy.gif"
+                        alt="Crazy cat" class="shayari-icon-img">
+                    <h3 class="shayari-title">Crazy For You</h3>
+                    <p class="shayari-text">
+                        They say I'm crazy, maybe it's true,<br>
+                        But what else can I be when I'm with you?<br>
+                        You make my heart do stupid things,<br>
+                        Like believe in forever and wedding rings.
+                    </p>
+                </article>
+
+                <!-- NEW: Missing You Poetry -->
+                <article class="shayari-card">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnRlb2VtZWVqamI5bzJkNjFkNjd0c2xhZ3p2a3FhdnpvNWU0azVqcyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/mlvseq9yvZhba/giphy.gif"
+                        alt="Missing cat" class="shayari-icon-img">
+                    <h3 class="shayari-title">Missing You</h3>
+                    <p class="shayari-text">
+                        Every second away from you,<br>
+                        Feels like forever in disguise,<br>
+                        I count the moments till I see,<br>
+                        That sparkle in your eyes.
+                    </p>
+                </article>
+
+                <!-- NEW: You're Mine Poetry -->
+                <article class="shayari-card">
+                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnlpZnVhM2h0NXhmazhjNWFiajc3Nnp2ZnZuamptZXJ6YjNlc3U1YyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/3o7TKoWXm3okO1kgHC/giphy.gif"
+                        alt="Mine cat" class="shayari-icon-img">
+                    <h3 class="shayari-title">You're Mine</h3>
+                    <p class="shayari-text">
+                        In this world of seven billion souls,<br>
+                        Somehow my heart found yours,<br>
+                        And now I know with certainty,<br>
+                        You're the one my heart adores.
+                    </p>
+                </article>
             </div>
         </section>
 
-        <!-- Wishes Section -->
+        <!-- Extended Wishes Section -->
         <section class="wishes-section" id="wishes">
             <h2 class="section-title">From My Heart</h2>
 
@@ -164,41 +361,80 @@
                     </p>
                     <p>
                         I don't even know where to begin... You walked into my life and everything changed.
-                        Before I met you, I thought love was just something in movies. But you showed me
-                        what real love feels like.
+                        Before I met you, I thought love was just something in movies, something that only happened
+                        to other people. But you showed me what real love feels like. You showed me that
+                        butterflies in the stomach are real, that hearts can actually skip beats, and that
+                        one person can become your entire world.
                     </p>
                     <p>
                         Your <span class="highlight">beautiful smile</span> makes my heart skip a beat every single
                         time.
-                        Your <span class="highlight">eyes</span> are like two stars that I could get lost in forever.
-                        Your <span class="highlight">voice</span> is my favorite melody - sometimes I can't wait just to
-                        hear you talk.
+                        Even after all this time, I still get nervous when I see you smile. It's like the first time,
+                        every time. Your <span class="highlight">eyes</span> are like two stars that I could get lost in
+                        forever -
+                        I swear I can see our entire future in them. Your <span class="highlight">voice</span> is my
+                        favorite
+                        melody - sometimes I call you just to hear you talk, even when I have nothing to say.
+                    </p>
+                    <p>
+                        Do you know what I love most about you? It's not just how beautiful you are (though you're
+                        absolutely stunning). It's the way you laugh at my stupid jokes. It's how you look at me
+                        like I'm the only person in the room. It's how you remember the little things I say.
+                        It's how you make everything better just by being there.
                     </p>
                     <p>
                         You're not just my girlfriend - you're my <span class="highlight">best friend</span>,
                         my <span class="highlight">partner in crime</span>, my <span class="highlight">support
-                            system</span>.
+                            system</span>,
+                        my <span class="highlight">safe place</span>, my <span class="highlight">home</span>.
                         Whenever things get tough, just thinking about you makes everything better.
+                        When I'm with you, I feel like I can conquer the world. When I'm away from you,
+                        I'm just counting the seconds until I see you again.
                     </p>
                     <p>
-                        This Valentine's Day, I just want to say - <span class="highlight">Thank you</span> for coming
-                        into my life.
-                        Thank you for every moment we've shared together. Thank you for understanding me, for loving me.
+                        I think about our future all the time. I think about all the adventures we'll have,
+                        all the memories we'll make, all the challenges we'll face together.
+                        And you know what? I'm not scared of any of it. Because with you by my side,
+                        I know we can handle anything. You make me believe in forever.
                     </p>
                     <p>
-                        I know I'm not perfect, I make mistakes all the time. But with you,
-                        I want to become a <span class="highlight">better person</span>. I want to give you
-                        everything you deserve.
+                        This Valentine's Day, I just want to say - <span class="highlight">Thank you</span>.
+                        Thank you for coming into my life. Thank you for choosing me. Thank you for every
+                        moment we've shared together - the big moments and the small ones. Thank you for
+                        understanding me, for accepting me with all my flaws, for loving me even when
+                        I'm being difficult. Thank you for being patient with me, for believing in me,
+                        for making me want to be a better person every single day.
                     </p>
                     <p>
-                        I made this little website just for you - it took a lot of effort,
-                        but every second was worth it because it's <span class="highlight">for you</span>.
+                        I know I'm not perfect. I make mistakes all the time. Sometimes I say stupid things,
+                        sometimes I forget important stuff, sometimes I'm not the best version of myself.
+                        But with you, I want to become <span class="highlight">better</span>. Not because you ask
+                        me to, but because you deserve the best version of me. I want to give you everything
+                        you deserve - all the love, all the happiness, all the adventures, all the laughs.
+                    </p>
+                    <p>
+                        Every morning I wake up grateful that you're in my life. Every night I fall asleep
+                        thinking about you. You are my first thought and my last thought. You are the reason
+                        behind my smile and the cure for my sadness. You are my everything.
+                    </p>
+                    <p>
+                        I promise to love you on your good days and your bad days. I promise to be there
+                        when you need me and even when you think you don't. I promise to make you laugh
+                        until your stomach hurts and to hold you when you cry. I promise to never stop
+                        trying to make you happy, to never stop falling in love with you, to never stop
+                        being grateful for you.
                     </p>
                     <p style="font-size: 1.3rem; margin-top: 24px;">
                         <span class="highlight">I love you more than words can ever express!</span>
                     </p>
-                    <p style="font-family: var(--font-romantic); font-size: 1.5rem; color: var(--rose-deep);">
-                        - Forever Yours
+                    <p style="font-size: 1.1rem; color: var(--text-secondary); margin-top: 16px;">
+                        I love you yesterday, I love you today, and I will love you tomorrow and forever.
+                        You are the best thing that ever happened to me, and I will spend the rest of my
+                        life making sure you know that.
+                    </p>
+                    <p
+                        style="font-family: var(--font-romantic); font-size: 1.8rem; color: var(--rose-deep); margin-top: 24px;">
+                        - Forever and Always Yours
                     </p>
                 </div>
             </div>
@@ -208,7 +444,7 @@
         <section class="valentine-section" id="valentine">
             <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGgxMjkyMWUyaGJ3d3ZtMHpwN2VlZ3R2OXFrdjJ1cW5jcDFwcWVtaSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/VIPdgcooFJHtC/giphy.gif"
                 alt="Love cat" class="big-heart-img">
-            <h2 class="valentine-question">Will You Be My Valentine?</h2>
+            <h2 class="valentine-question glow-text">Will You Be My Valentine?</h2>
 
             <div class="button-container">
                 <button class="btn btn-yes" id="yes-btn">Yes!</button>
@@ -269,6 +505,23 @@
     </main>
 
     <script src="js/main.js"></script>
+
+    <!-- Sparkle effect script -->
+    <script>
+        // Add sparkles randomly on the page
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            sparkle.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => sparkle.remove(), 4000);
+        }
+
+        setInterval(createSparkle, 500);
+    </script>
 </body>
 
 </html>
