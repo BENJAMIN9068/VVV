@@ -4,6 +4,11 @@
    ============================================ */
 
 document.addEventListener('DOMContentLoaded', function () {
+    // RESET everything on page load (user requested)
+    localStorage.removeItem('valentine_user_name');
+    localStorage.removeItem('valentine_quiz_answers');
+    // Keep valentine_all_answers for reveal page (admin only)
+
     // Check if name is entered, if not show name modal
     checkNameEntry();
     initFloatingHearts();
