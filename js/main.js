@@ -37,7 +37,7 @@ function showNameModal() {
     modal.innerHTML = `
         <div class="name-modal-overlay">
             <div class="name-modal-content">
-                <img src="https://media.tenor.com/vCmpeHffZvMAAAAi/tkthao219-bubududu.gif" alt="Bubu Dudu"
+                <img src="assets/gifs/86953-bubududu-kiss.gif" alt="Bubu Dudu"
                     style="width: 120px; margin-bottom: 16px;">
                 <h2 style="font-family: 'Dancing Script', cursive; font-size: 2rem; color: #C73866; margin-bottom: 16px;">
                     Welcome, Beautiful! 💕
