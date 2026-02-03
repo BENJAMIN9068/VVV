@@ -37,9 +37,10 @@ function showNameModal() {
     modal.innerHTML = `
         <div class="name-modal-overlay">
             <div class="name-modal-content">
-                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGgxMjkyMWUyaGJ3d3ZtMHpwN2VlZ3R2OXFrdjJ1cW5jcDFwcWVtaSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/VIPdgcooFJHtC/giphy.gif" alt="Cat" style="width: 100px; margin-bottom: 16px;">
+                <img src="https://media.tenor.com/vCmpeHffZvMAAAAi/tkthao219-bubududu.gif" alt="Bubu Dudu"
+                    style="width: 120px; margin-bottom: 16px;">
                 <h2 style="font-family: 'Dancing Script', cursive; font-size: 2rem; color: #C73866; margin-bottom: 16px;">
-                    Welcome, Beautiful!
+                    Welcome, Beautiful! 💕
                 </h2>
                 <p style="color: #4A1942; margin-bottom: 24px;">
                     Please enter your name to continue
@@ -51,7 +52,7 @@ function showNameModal() {
                     style="background: linear-gradient(135deg, #FF6B9D, #C73866); color: white; 
                     border: none; padding: 12px 32px; border-radius: 24px; font-size: 1.1rem; 
                     font-family: 'Dancing Script', cursive; cursor: pointer; transition: transform 0.3s;">
-                    Enter
+                    Enter ❤️
                 </button>
             </div>
         </div>
@@ -129,7 +130,7 @@ function updatePageWithName(name) {
     // Update hero title with name
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
-        heroTitle.textContent = `My ${name}`;
+        heroTitle.textContent = `My ${name} 💕`;
     }
 }
 
@@ -143,12 +144,12 @@ function initFloatingHearts() {
     function createHeart() {
         const heart = document.createElement('span');
         heart.className = 'heart';
-        heart.innerHTML = '&#10084;'; // Heart symbol
+        const hearts = ['❤️', '💕', '💗', '💖', '💝', '💘'];
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
         heart.style.left = Math.random() * 100 + '%';
         heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
         heart.style.animationDelay = Math.random() * 5 + 's';
         heart.style.fontSize = (Math.random() * 20 + 16) + 'px';
-        heart.style.color = '#FF6B9D';
 
         heartsContainer.appendChild(heart);
 
@@ -284,7 +285,7 @@ function initValentineButtons() {
                     noBtn.style.display = 'none';
                     // Make Yes button bigger
                     yesBtn.style.transform = 'scale(1.3)';
-                    yesBtn.textContent = 'Just say Yes!';
+                    yesBtn.textContent = 'Just say Yes! 💕';
                 }, 500);
             }, 300);
         }

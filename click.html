@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Fun questions to test how well you know us!">
     <meta name="theme-color" content="#FF6B9D">
-    <title>Secret Questions</title>
+    <title>Secret Questions 💕</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,29 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .floating-heart {
+            position: fixed;
+            font-size: 24px;
+            color: #FF6B9D;
+            pointer-events: none;
+            animation: floatHeart 8s linear infinite;
+            z-index: 50;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -25,11 +48,11 @@
         <div class="floating-hearts" id="hearts-container"></div>
     </div>
 
-    <!-- Animated Cat Stickers -->
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTd6Z3RhZjM0dHFxMzN6NXJhbnpvMDhxdnNlMjU1NHpkcnRhYjJvaiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif"
-        alt="Cute cat" class="cat-sticker cat-1">
-    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2M5Z3g3cGNhcDF5eGFoamd4bm5zbDF4c3MxZWNjc3JrdHJzbHJuMCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/CjmvTCZf2U3p09Cn0h/giphy.gif"
-        alt="Love cat" class="cat-sticker cat-3">
+    <!-- Bubu Dudu Stickers -->
+    <img src="https://media.tenor.com/lsi1bLPdnlcAAAAi/bubu-dudu.gif" alt="Bubu Dudu" class="cat-sticker cat-1"
+        style="width: 80px; height: 80px;">
+    <img src="https://media.tenor.com/DHj9rXxE5HMAAAAi/bubu-dudu.gif" alt="Bubu Dudu Hug" class="cat-sticker cat-3"
+        style="width: 80px; height: 80px;">
 
     <!-- Confetti Container -->
     <div class="confetti-container" id="confetti-container"></div>
@@ -55,6 +78,23 @@
     </main>
 
     <script src="js/questions.js"></script>
+
+    <!-- Floating hearts script -->
+    <script>
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            const hearts = ['❤️', '💕', '💗', '💖', '💝'];
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 10000);
+        }
+        setInterval(createFloatingHeart, 1000);
+        for (let i = 0; i < 10; i++) setTimeout(createFloatingHeart, i * 200);
+    </script>
 </body>
 
 </html>
