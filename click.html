@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fun questions to test how well you know us!">
+    <meta name="theme-color" content="#FF6B9D">
+    <title>Secret Questions</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="background-container" id="background">
+        <div class="floating-hearts" id="hearts-container"></div>
+    </div>
+
+    <!-- Animated Cat Stickers -->
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTd6Z3RhZjM0dHFxMzN6NXJhbnpvMDhxdnNlMjU1NHpkcnRhYjJvaiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif"
+        alt="Cute cat" class="cat-sticker cat-1">
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2M5Z3g3cGNhcDF5eGFoamd4bm5zbDF4c3MxZWNjc3JrdHJzbHJuMCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/CjmvTCZf2U3p09Cn0h/giphy.gif"
+        alt="Love cat" class="cat-sticker cat-3">
+
+    <!-- Confetti Container -->
+    <div class="confetti-container" id="confetti-container"></div>
+
+    <!-- Main Content -->
+    <main class="questions-container">
+
+        <!-- Progress Bar -->
+        <div class="progress-bar" style="max-width: 500px; width: 100%; margin-bottom: 24px;">
+            <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+        </div>
+
+        <!-- Question Card -->
+        <div class="question-card" id="question-card">
+            <!-- Questions will be dynamically inserted here -->
+        </div>
+
+        <!-- Results Container (Hidden Initially) -->
+        <div class="question-card results-container" id="results-container" style="display: none;">
+            <!-- Results will be shown here -->
+        </div>
+
+    </main>
+
+    <script src="js/questions.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,972 @@
+/* ============================================
+   💕 Valentine's Day Website - Style System
+   Ultra Romantic Pink Theme with Glassmorphism
+   ============================================ */
+
+/* CSS Variables - Pink Theme */
+:root {
+  /* Primary Colors */
+  --pink-soft: #FF6B9D;
+  --pink-light: #FFB6C1;
+  --pink-medium: #FF85A2;
+  --pink-deep: #E91E63;
+  --rose-gold: #E8A0BF;
+  --rose-deep: #C73866;
+
+  /* Backgrounds */
+  --bg-gradient-start: #FFE5EC;
+  --bg-gradient-end: #FFC0CB;
+  --bg-dark-pink: #2D1F2B;
+
+  /* Text Colors */
+  --text-primary: #4A1942;
+  --text-secondary: #8B4A6B;
+  --text-light: #FFFFFF;
+  --text-muted: #B87DA0;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: rgba(233, 30, 99, 0.2);
+
+  /* Shadows */
+  --shadow-soft: 0 8px 32px rgba(199, 56, 102, 0.15);
+  --shadow-glow: 0 0 40px rgba(255, 107, 157, 0.4);
+
+  /* Spacing (8px grid) */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+  --space-xxl: 64px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-full: 50%;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.4s ease;
+  --transition-slow: 0.6s ease;
+
+  /* Fonts */
+  --font-romantic: 'Dancing Script', cursive;
+  --font-body: 'Poppins', sans-serif;
+  --font-hindi: 'Tiro Devanagari Hindi', serif;
+}
+
+/* Reset & Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ============================================
+   Background Animations
+   ============================================ */
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.heart {
+  position: absolute;
+  font-size: 24px;
+  animation: floatHeart 15s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+@keyframes floatHeart {
+
+  0%,
+  100% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.6;
+  }
+
+  90% {
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: translateY(-10vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.petal {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: linear-gradient(135deg, var(--pink-soft), var(--rose-gold));
+  border-radius: 50% 0 50% 50%;
+  animation: floatPetal 20s infinite ease-in-out;
+  opacity: 0.5;
+}
+
+@keyframes floatPetal {
+
+  0%,
+  100% {
+    transform: translateY(100vh) translateX(0) rotate(0deg);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateY(50vh) translateX(50px) rotate(180deg);
+  }
+
+  90% {
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: translateY(-10vh) translateX(-50px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   Main Content Container
+   ============================================ */
+
+.main-container {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-lg);
+  position: relative;
+}
+
+.hero-content {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-soft);
+  max-width: 600px;
+  animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  font-family: var(--font-romantic);
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  color: var(--rose-deep);
+  margin-bottom: var(--space-md);
+  text-shadow: 2px 2px 4px rgba(199, 56, 102, 0.2);
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+
+  0%,
+  100% {
+    text-shadow: 2px 2px 4px rgba(199, 56, 102, 0.2);
+  }
+
+  50% {
+    text-shadow: 2px 2px 20px rgba(255, 107, 157, 0.6), 0 0 40px rgba(255, 182, 193, 0.4);
+  }
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+  font-weight: 300;
+}
+
+.heart-divider {
+  font-size: 2rem;
+  color: var(--pink-soft);
+  margin: var(--space-md) 0;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  animation: bounce 2s infinite;
+  font-size: 2rem;
+  color: var(--pink-soft);
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-15px);
+  }
+}
+
+/* ============================================
+   Shayari Section
+   ============================================ */
+
+.shayari-section {
+  padding: var(--space-xxl) var(--space-lg);
+  position: relative;
+}
+
+.section-title {
+  font-family: var(--font-romantic);
+  font-size: clamp(2rem, 6vw, 3rem);
+  text-align: center;
+  color: var(--rose-deep);
+  margin-bottom: var(--space-xl);
+}
+
+.shayari-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shayari-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+  opacity: 0;
+  animation: fadeInCard 0.8s ease-out forwards;
+}
+
+.shayari-card:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.shayari-card:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.shayari-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.shayari-card:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.shayari-card:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+.shayari-card:nth-child(6) {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.shayari-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow);
+}
+
+.shayari-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.shayari-title {
+  font-family: var(--font-romantic);
+  font-size: 1.5rem;
+  color: var(--rose-deep);
+  margin-bottom: var(--space-sm);
+}
+
+.shayari-text {
+  font-family: var(--font-hindi);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 2;
+  text-align: center;
+  font-style: italic;
+}
+
+/* ============================================
+   Wishes Section
+   ============================================ */
+
+.wishes-section {
+  padding: var(--space-xxl) var(--space-lg);
+  background: linear-gradient(180deg, transparent 0%, rgba(199, 56, 102, 0.1) 50%, transparent 100%);
+}
+
+.wishes-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-soft);
+}
+
+.wishes-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+.wishes-icon {
+  font-size: 4rem;
+  animation: float 3s infinite ease-in-out;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.wishes-text {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  line-height: 2;
+  text-align: center;
+}
+
+.wishes-text p {
+  margin-bottom: var(--space-md);
+}
+
+.highlight {
+  color: var(--rose-deep);
+  font-weight: 600;
+}
+
+/* ============================================
+   Valentine Question Section
+   ============================================ */
+
+.valentine-section {
+  padding: var(--space-xxl) var(--space-lg);
+  text-align: center;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.valentine-question {
+  font-family: var(--font-romantic);
+  font-size: clamp(2rem, 8vw, 4rem);
+  color: var(--rose-deep);
+  margin-bottom: var(--space-xl);
+  animation: sparkle 2s infinite;
+}
+
+.big-heart {
+  font-size: 8rem;
+  animation: heartbeat 1s infinite;
+  display: block;
+  margin-bottom: var(--space-lg);
+}
+
+@keyframes heartbeat {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  14% {
+    transform: scale(1.1);
+  }
+
+  28% {
+    transform: scale(1);
+  }
+
+  42% {
+    transform: scale(1.1);
+  }
+
+  70% {
+    transform: scale(1);
+  }
+}
+
+.button-container {
+  display: flex;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  font-family: var(--font-romantic);
+  font-size: 1.5rem;
+  padding: var(--space-sm) var(--space-xl);
+  border: none;
+  border-radius: var(--radius-xl);
+  cursor: pointer;
+  transition: all var(--transition-medium);
+  min-width: 150px;
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, var(--pink-soft), var(--rose-deep));
+  color: var(--text-light);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-yes:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-glow);
+}
+
+.btn-no {
+  background: linear-gradient(135deg, #ddd, #bbb);
+  color: var(--text-secondary);
+  position: relative;
+}
+
+.btn-no:hover {
+  animation: runAway 0.3s ease;
+}
+
+@keyframes runAway {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  25% {
+    transform: translate(100px, -50px);
+  }
+
+  50% {
+    transform: translate(-100px, 50px);
+  }
+
+  75% {
+    transform: translate(50px, -100px);
+  }
+
+  100% {
+    transform: translate(-50px, 100px);
+  }
+}
+
+/* ============================================
+   Cat Stickers
+   ============================================ */
+
+.cat-sticker {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  z-index: 100;
+  animation: catBounce 2s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.cat-1 {
+  top: 10%;
+  left: 5%;
+  animation-delay: 0s;
+}
+
+.cat-2 {
+  top: 30%;
+  right: 5%;
+  animation-delay: 0.5s;
+}
+
+.cat-3 {
+  bottom: 20%;
+  left: 8%;
+  animation-delay: 1s;
+}
+
+.cat-4 {
+  bottom: 40%;
+  right: 8%;
+  animation-delay: 1.5s;
+}
+
+@keyframes catBounce {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+/* Image-based icons for shayari cards */
+.shayari-icon-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: var(--space-sm);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Wishes section icon */
+.wishes-icon-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  animation: float 3s infinite ease-in-out;
+}
+
+/* Big heart image for valentine section */
+.big-heart-img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  animation: heartbeat 1s infinite;
+  display: block;
+  margin: 0 auto var(--space-lg);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+  padding: var(--space-xl) var(--space-lg);
+  text-align: center;
+  background: linear-gradient(180deg, transparent, rgba(199, 56, 102, 0.15));
+}
+
+.footer-text {
+  font-family: var(--font-romantic);
+  font-size: 1.5rem;
+  color: var(--rose-deep);
+  margin-bottom: var(--space-md);
+}
+
+.secret-link {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-lg);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  color: var(--rose-deep);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all var(--transition-medium);
+}
+
+.secret-link:hover {
+  background: var(--pink-soft);
+  color: var(--text-light);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ============================================
+   Confetti Animation
+   ============================================ */
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  display: none;
+}
+
+.confetti-container.active {
+  display: block;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: confettiFall 3s ease-out forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ============================================
+   Questions Page Styles
+   ============================================ */
+
+.questions-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-lg);
+}
+
+.question-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-soft);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.question-number {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.question-text {
+  font-family: var(--font-hindi);
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.option-btn {
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.2), rgba(232, 160, 191, 0.2));
+  border: 2px solid var(--pink-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm);
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.option-btn:hover {
+  background: linear-gradient(135deg, var(--pink-soft), var(--rose-gold));
+  color: var(--text-light);
+  transform: scale(1.02);
+}
+
+.text-input {
+  width: 100%;
+  padding: var(--space-sm);
+  border: 2px solid var(--pink-soft);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: var(--font-body);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--text-primary);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.text-input:focus {
+  border-color: var(--rose-deep);
+  box-shadow: 0 0 10px rgba(199, 56, 102, 0.3);
+}
+
+.range-slider {
+  width: 100%;
+  height: 8px;
+  -webkit-appearance: none;
+  background: linear-gradient(90deg, var(--pink-light), var(--rose-deep));
+  border-radius: var(--radius-sm);
+  outline: none;
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background: var(--rose-deep);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.range-value {
+  font-size: 2rem;
+  color: var(--rose-deep);
+  font-weight: bold;
+  margin-top: var(--space-sm);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-lg);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--pink-soft), var(--rose-deep));
+  transition: width var(--transition-medium);
+  border-radius: var(--radius-sm);
+}
+
+.cat-reaction {
+  font-size: 4rem;
+  margin: var(--space-md) 0;
+  animation: catBounce 1s infinite;
+}
+
+.cat-reaction-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: var(--space-md) auto;
+  display: block;
+}
+
+.next-btn {
+  background: linear-gradient(135deg, var(--pink-soft), var(--rose-deep));
+  color: var(--text-light);
+  border: none;
+  border-radius: var(--radius-lg);
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 1.1rem;
+  font-family: var(--font-romantic);
+  cursor: pointer;
+  margin-top: var(--space-lg);
+  transition: all var(--transition-medium);
+}
+
+.next-btn:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-glow);
+}
+
+.next-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Results Page */
+.results-container {
+  text-align: center;
+}
+
+.love-score {
+  font-size: 5rem;
+  color: var(--rose-deep);
+  font-family: var(--font-romantic);
+  animation: pulse 1s infinite;
+}
+
+.love-message {
+  font-size: 1.3rem;
+  color: var(--text-primary);
+  margin: var(--space-lg) 0;
+}
+
+.back-link {
+  display: inline-block;
+  color: var(--pink-soft);
+  text-decoration: none;
+  font-size: 1.1rem;
+  margin-top: var(--space-lg);
+  transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--rose-deep);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 32px;
+    --space-xxl: 48px;
+  }
+
+  .hero-content {
+    padding: var(--space-lg);
+  }
+
+  .shayari-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cat-sticker {
+    font-size: 2rem;
+  }
+
+  .big-heart {
+    font-size: 5rem;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .valentine-question {
+    font-size: 1.8rem;
+  }
+
+  .wishes-container {
+    padding: var(--space-md);
+  }
+}
