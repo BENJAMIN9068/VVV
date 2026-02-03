@@ -16,14 +16,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 /* ============================================
-   Cat Sticker URLs from Giphy
+   Bubu Dudu GIF URLs from Tenor
    ============================================ */
-const catStickers = {
-    happy: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTd6Z3RhZjM0dHFxMzN6NXJhbnpvMDhxdnNlMjU1NHpkcnRhYjJvaiZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif',
-    love: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOGgxMjkyMWUyaGJ3d3ZtMHpwN2VlZ3R2OXFrdjJ1cW5jcDFwcWVtaSZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/VIPdgcooFJHtC/giphy.gif',
-    cute: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2M5Z3g3cGNhcDF5eGFoamd4bm5zbDF4c3MxZWNjc3JrdHJzbHJuMCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/CjmvTCZf2U3p09Cn0h/giphy.gif',
-    funny: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYnRlb2VtZWVqamI5bzJkNjFkNjd0c2xhZ3p2a3FhdnpvNWU0azVqcyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/mlvseq9yvZhba/giphy.gif',
-    heart: 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnlpZnVhM2h0NXhmazhjNWFiajc3Nnp2ZnZuamptZXJ6YjNlc3U1YyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/3o7TKoWXm3okO1kgHC/giphy.gif'
+const bubuDuduGifs = {
+    love: 'https://media.tenor.com/vCmpeHffZvMAAAAi/tkthao219-bubududu.gif',
+    hug: 'https://media.tenor.com/DHj9rXxE5HMAAAAi/bubu-dudu.gif',
+    kiss: 'https://media.tenor.com/DLzGfzCErAoAAAAi/bubu-dudu-kiss.gif',
+    cute: 'https://media.tenor.com/lsi1bLPdnlcAAAAi/bubu-dudu.gif',
+    happy: 'https://media.tenor.com/jOuVjPahvGkAAAAi/bubu-dudu-bubu.gif',
+    blush: 'https://media.tenor.com/pxLWdrtTiPQAAAAi/bubu-bubu-dudu.gif',
+    eyes: 'https://media.tenor.com/-S_tNqLpDCkAAAAi/bubuanddudu-bubu.gif',
+    dudu: 'https://media.tenor.com/AwmwLpKHqfoAAAAi/dudu-bubu.gif'
 };
 
 /* ============================================
@@ -40,7 +43,7 @@ const questions = [
             'I would do anything for you',
             'Everything!'
         ],
-        catSticker: catStickers.love
+        gif: bubuDuduGifs.love
     },
     {
         id: 2,
@@ -52,14 +55,14 @@ const questions = [
             'When I proposed',
             'Every moment is special!'
         ],
-        catSticker: catStickers.happy
+        gif: bubuDuduGifs.happy
     },
     {
         id: 3,
         type: 'text',
         question: 'Describe me in one word!',
         placeholder: 'Type your answer...',
-        catSticker: catStickers.cute
+        gif: bubuDuduGifs.blush
     },
     {
         id: 4,
@@ -68,7 +71,7 @@ const questions = [
         min: 1,
         max: 10,
         default: 8,
-        catSticker: catStickers.heart
+        gif: bubuDuduGifs.kiss
     },
     {
         id: 5,
@@ -80,21 +83,21 @@ const questions = [
             'Chocolate!',
             'Surprise me!'
         ],
-        catSticker: catStickers.funny
+        gif: bubuDuduGifs.cute
     },
     {
         id: 6,
         type: 'text',
         question: 'What do you love most about us?',
         placeholder: 'Tell me in your own words...',
-        catSticker: catStickers.love
+        gif: bubuDuduGifs.hug
     },
     {
         id: 7,
         type: 'text',
         question: 'Write a love message for me!',
         placeholder: 'Write from your heart...',
-        catSticker: catStickers.heart
+        gif: bubuDuduGifs.eyes
     },
     {
         id: 8,
@@ -104,7 +107,7 @@ const questions = [
             'Yes!',
             'Of course Yes!'
         ],
-        catSticker: catStickers.heart
+        gif: bubuDuduGifs.love
     }
 ];
 
@@ -128,7 +131,7 @@ function displayQuestion(index) {
 
     let html = `
         <div class="question-number">Question ${index + 1} of ${questions.length}</div>
-        <img src="${question.catSticker}" alt="Cat" class="cat-reaction-img">
+        <img src="${question.gif}" alt="Bubu Dudu" class="cat-reaction-img" style="width: 120px; height: 120px;">
         <h2 class="question-text">${question.question}</h2>
     `;
 
@@ -210,7 +213,7 @@ function createYesYes(question) {
         html += `<button class="option-btn" data-index="${idx}" style="background: linear-gradient(135deg, var(--pink-soft), var(--rose-deep)); color: white;">${option}</button>`;
     });
     html += '</div>';
-    html += '<p style="color: var(--text-muted); margin-top: 16px; font-size: 0.9rem;">Hint: There\'s no wrong answer here!</p>';
+    html += '<p style="color: var(--text-muted); margin-top: 16px; font-size: 0.9rem;">Hint: There\'s no wrong answer here! 💕</p>';
     return html;
 }
 
@@ -232,7 +235,6 @@ function attachEventListeners(type) {
             break;
 
         case 'multiple-with-text':
-            // Option buttons
             document.querySelectorAll('.option-btn').forEach(btn => {
                 btn.addEventListener('click', function () {
                     const selectedIndex = parseInt(this.dataset.index);
@@ -242,7 +244,6 @@ function attachEventListeners(type) {
                 });
             });
 
-            // Custom text input
             const customInput = document.querySelector('.custom-answer');
             const customSubmit = document.querySelector('.custom-submit');
 
@@ -294,9 +295,9 @@ function attachEventListeners(type) {
             slider.addEventListener('input', function () {
                 const value = parseInt(this.value);
                 let text = value.toString();
-                if (value >= 9) text = value + ' - Perfect!';
-                else if (value >= 7) text = value + ' - Amazing!';
-                else if (value >= 5) text = value + ' - Good!';
+                if (value >= 9) text = value + ' - Perfect! 💕';
+                else if (value >= 7) text = value + ' - Amazing! ❤️';
+                else if (value >= 5) text = value + ' - Good! 💗';
                 sliderValue.textContent = text;
             });
 
@@ -321,10 +322,8 @@ function saveAnswer(answer) {
         answer: answer
     });
 
-    // Save to localStorage for local viewing
     localStorage.setItem('valentine_quiz_answers', JSON.stringify(answers));
 
-    // Save to global answers storage for reveal page
     let allAnswers = JSON.parse(localStorage.getItem('valentine_all_answers') || '{}');
 
     if (!allAnswers[userName]) {
@@ -372,7 +371,6 @@ function showResults() {
     questionCard.style.display = 'none';
     resultsContainer.style.display = 'block';
 
-    // Calculate "love score"
     const sliderAnswer = answers.find(a => a.questionId === 4);
     let baseScore = 8;
     if (sliderAnswer && typeof sliderAnswer.answer === 'string') {
@@ -383,37 +381,37 @@ function showResults() {
     launchConfettiResults();
 
     resultsContainer.innerHTML = `
-        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 16px;">
-            <img src="${catStickers.love}" alt="Love cat" style="width: 80px;">
-            <img src="${catStickers.happy}" alt="Happy cat" style="width: 80px;">
-            <img src="${catStickers.cute}" alt="Cute cat" style="width: 80px;">
+        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 16px; flex-wrap: wrap;">
+            <img src="${bubuDuduGifs.love}" alt="Love" style="width: 80px;">
+            <img src="${bubuDuduGifs.kiss}" alt="Kiss" style="width: 80px;">
+            <img src="${bubuDuduGifs.hug}" alt="Hug" style="width: 80px;">
         </div>
         <h2 style="font-family: var(--font-romantic); font-size: 2rem; color: var(--rose-deep); margin-bottom: 16px;">
-            Thank you, ${userName}!
+            Thank you, ${userName}! 💕
         </h2>
         
         <div class="love-score">${loveScore}/10</div>
-        <p style="color: var(--text-secondary); margin-bottom: 24px;">Our Love Score!</p>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">Our Love Score! ❤️</p>
         
         <div class="love-message">
             ${getLoveMessage(loveScore)}
         </div>
         
         <div style="background: rgba(255, 107, 157, 0.1); padding: 24px; border-radius: 16px; margin: 24px 0;">
-            <h3 style="color: var(--rose-deep); margin-bottom: 16px;">Your Answers</h3>
+            <h3 style="color: var(--rose-deep); margin-bottom: 16px;">Your Answers 📝</h3>
             ${generateAnswersSummary()}
         </div>
         
-        <div style="display: flex; justify-content: center; gap: 16px; margin: 16px 0;">
-            <img src="${catStickers.funny}" alt="Funny cat" style="width: 80px;">
-            <img src="${catStickers.heart}" alt="Heart cat" style="width: 80px;">
+        <div style="display: flex; justify-content: center; gap: 16px; margin: 16px 0; flex-wrap: wrap;">
+            <img src="${bubuDuduGifs.cute}" alt="Cute" style="width: 80px;">
+            <img src="${bubuDuduGifs.happy}" alt="Happy" style="width: 80px;">
         </div>
         
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 16px;">
-            All your answers have been saved with love!
+            All your answers have been saved with love! 💕
         </p>
         
-        <a href="index.html" class="back-link">Back to Main Page</a>
+        <a href="index.html" class="back-link">Back to Main Page ❤️</a>
     `;
 
     resultsContainer.style.animation = 'fadeInUp 0.5s ease-out';
@@ -422,21 +420,21 @@ function showResults() {
 function getLoveMessage(score) {
     if (score >= 9) {
         return `
-            <span style="font-size: 1.5rem;">PERFECT MATCH!</span><br><br>
+            <span style="font-size: 1.5rem;">PERFECT MATCH! 💕</span><br><br>
             Our love is truly special!<br>
-            We are made for each other!
+            We are made for each other! ❤️
         `;
     } else if (score >= 7) {
         return `
-            <span style="font-size: 1.5rem;">AMAZING!</span><br><br>
+            <span style="font-size: 1.5rem;">AMAZING! 💗</span><br><br>
             We have the best relationship!<br>
-            Together forever!
+            Together forever! 💖
         `;
     } else {
         return `
-            <span style="font-size: 1.5rem;">BEAUTIFUL!</span><br><br>
+            <span style="font-size: 1.5rem;">BEAUTIFUL! 💓</span><br><br>
             Our love story is just beginning!<br>
-            The best is yet to come!
+            The best is yet to come! 💕
         `;
     }
 }
@@ -506,12 +504,12 @@ function initFloatingHeartsQuestions() {
     function createHeart() {
         const heart = document.createElement('span');
         heart.className = 'heart';
-        heart.innerHTML = '&#10084;';
+        const hearts = ['❤️', '💕', '💗', '💖', '💝'];
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
         heart.style.left = Math.random() * 100 + '%';
         heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
         heart.style.animationDelay = Math.random() * 5 + 's';
         heart.style.fontSize = (Math.random() * 15 + 14) + 'px';
-        heart.style.color = '#FF6B9D';
 
         heartsContainer.appendChild(heart);
 
@@ -522,9 +520,9 @@ function initFloatingHeartsQuestions() {
         }, 20000);
     }
 
-    for (let i = 0; i < 8; i++) {
-        setTimeout(() => createHeart(), i * 600);
+    for (let i = 0; i < 10; i++) {
+        setTimeout(() => createHeart(), i * 500);
     }
 
-    setInterval(createHeart, 3000);
+    setInterval(createHeart, 2000);
 }
